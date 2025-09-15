@@ -4,7 +4,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "all": "concurrently \"start vendor\\bin\\mailpit.exe\" \"npm run dev\" \"php artisan serve\""
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
