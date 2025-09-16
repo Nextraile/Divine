@@ -5,12 +5,17 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
+
         "init:composer": "composer clear-cache && composer install",
         "init:env": "copy .env.example .env",
         "init:artisan": "php artisan key:generate && php artisan storage:link",
         "init:mailpit": "powershell -Command \"Invoke-WebRequest -Uri 'https://github.com/axllent/mailpit/releases/latest/download/mailpit-windows-amd64.zip' -OutFile 'mailpit.zip'; Expand-Archive -Path 'mailpit.zip' -DestinationPath '.\\vendor\\bin\\mailpit\\'; Remove-Item 'mailpit.zip'\"",
         "init": "npm run init:composer && npm run init:env && npm run init:artisan && npm run init:mailpit",
-        "all": "concurrently \"start vendor\\bin\\mailpit\\mailpit.exe\" \"npm run dev\" \"php artisan serve\""
+
+        "run:mailpit": "start vendor\\bin\\mailpit\\mailpit.exe",
+        "run:laravel": "php artisan serve",
+
+        "all": "concurrently \"npm run run:mailpit\" \"npm run dev\" \"npm run run:laravel\""
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",
