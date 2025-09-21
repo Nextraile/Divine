@@ -9,7 +9,7 @@
         "init:composer": "composer clear-cache && composer install --prefer-dist",
         "init:env": "copy .env.example .env",
         "init:artisan": "php artisan key:generate && php artisan storage:link",
-        "init:mailpit": "powershell -Command \"Invoke-WebRequest -Uri 'https://github.com/axllent/mailpit/releases/latest/download/mailpit-windows-amd64.zip' -OutFile 'mailpit.zip'; Expand-Archive -Path 'mailpit.zip' -DestinationPath '.\\vendor\\bin\\mailpit\\'; Remove-Item 'mailpit.zip'\"",
+        "init:mailpit": "curl -L -o mailpit.zip https://github.com/axllent/mailpit/releases/latest/download/mailpit-windows-amd64.zip && tar -xf mailpit.zip -C vendor/bin/mailpit/ && del mailpit.zip",
         "init:core": "npm run init:composer && npm run init:env && npm run init:artisan",
         "init": "npm run init:core && npm run init:mailpit",
 
