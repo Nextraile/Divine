@@ -10,7 +10,8 @@
         "init:env": "copy .env.example .env",
         "init:artisan": "php artisan key:generate && php artisan storage:link",
         "init:mailpit": "powershell -Command \"Invoke-WebRequest -Uri 'https://github.com/axllent/mailpit/releases/latest/download/mailpit-windows-amd64.zip' -OutFile 'mailpit.zip'; Expand-Archive -Path 'mailpit.zip' -DestinationPath '.\\vendor\\bin\\mailpit\\'; Remove-Item 'mailpit.zip'\"",
-        "init": "npm run init:composer && npm run init:env && npm run init:artisan && npm run init:mailpit",
+        "init:core": "npm run init:composer && npm run init:env && npm run init:artisan",
+        "init": "npm run init:core && npm run init:mailpit",
 
         "run:mailpit": "start vendor\\bin\\mailpit\\mailpit.exe",
         "run:laravel": "php artisan serve",
