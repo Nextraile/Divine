@@ -12,7 +12,8 @@ use App\Http\Controllers\TaggablesController;
 
 Route::get('/', [LandingController::class, 'index']);
 Route::prefix('user')->group( function () {
-    Route::get('/dashboard', [UserController::class, 'index']);
+    Route::get('/', [UserController::class, 'index']);
+    Route::get('/dashboard', [UserController::class, 'dashboard']);
     Route::get('/settings', [UserController::class, 'preferences']);
     Route::get('/visions', [VisionsController::class, 'index']);
     Route::get('/tags', [TagsController::class, 'index']);

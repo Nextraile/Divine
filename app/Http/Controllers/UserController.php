@@ -11,7 +11,17 @@ class UserController extends Controller
      */
     public function index()
     {
+        return view('user.profile');
+    }
+
+    public function dashboard()
+    {
         return view('user.dashboard');
+    }
+
+    public function preferences()
+    {
+        return;
     }
 
     /**
